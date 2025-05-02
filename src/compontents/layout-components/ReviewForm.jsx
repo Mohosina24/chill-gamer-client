@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const ReviewForm = () => {
 
@@ -25,6 +26,15 @@ const ReviewForm = () => {
        .then(res => res.json())
        .then(data => {
         console.log(data);
+        if(data.insertedId){
+          Swal.fire({
+            title:'Success!',
+            text:'Game review added successfully!',
+             icon:'success',
+             confirmButtonText:'OK'
+          });
+          form.reset();
+        }
        })
     }
   return (

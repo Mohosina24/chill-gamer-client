@@ -1,10 +1,17 @@
-import React from 'react';
-
-const AuthProvider = () => {
+import React, { createContext } from 'react';
+import { getAuth } from "firebase/auth";
+ export const AuthContext = createContext();
+ const auth = getAuth();
+const AuthProvider = ({children}) => {
+    
+       const name = "biva";
+    const gamerInfo={
+          name,
+    }
     return (
-        <div>
-            provider
-        </div>
+      <AuthContext.Provider value={gamerInfo}>
+      {children}
+      </AuthContext.Provider>
     );
 };
 

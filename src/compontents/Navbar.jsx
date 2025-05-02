@@ -39,13 +39,13 @@ const Navbar = () => {
     <a className="btn btn-ghost text-3xl text-purple-800">Chill Gamer</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1 gap-2 text-lg text-purple-600">
+    <ul className="menu menu-horizontal px-1 gap-2 text-lg text-blue-800 font-semibold">
     {links}
     </ul>
   </div>
   <div className="navbar-end gap-3">
     <img src={userIcon} alt="" className='w-12'/>
-    <Link className="btn bg-purple-700 text-white" to="/register">Register</Link>
+    <Link className="btn bg-blue-800 text-white" to="/register">Register</Link>
     <Link className="btn bg-purple-700 text-white" to="/login">Login</Link>
     
   </div>
