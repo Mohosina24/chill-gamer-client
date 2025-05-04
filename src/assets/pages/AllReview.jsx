@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Navbar from '../../compontents/Navbar';
 import Footer from '../../compontents/Footer';
+import Background from '../background1.jpg'
 
 const AllReview = () => {
     const loadReviews = useLoaderData();
@@ -12,6 +13,13 @@ const AllReview = () => {
 
     return (
         <>
+        <div style={{
+                            backgroundImage:`url(${Background})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            minHeight:'100vh',
+                            width:'100%'
+                        }}>
         <nav className=''>
             <Navbar></Navbar>
         </nav>
@@ -63,6 +71,7 @@ const AllReview = () => {
         <footer>
             <Footer></Footer>
         </footer>
+        </div>
         </>
     );
 };

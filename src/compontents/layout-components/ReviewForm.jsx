@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const ReviewForm = () => {
+
+  const {user} = useContext(AuthContext);
+  const [email,setEmail] = useState('');
+  const [name,setName] = useState('');
+
+  useEffect(()=>{
+    if(user){
+      setEmail(user.email || '');
+      setName(user.displayName || '');
+    }
+  },[user])
+
 
     const handleReviewSubmit = e =>{
        e.preventDefault();
@@ -79,6 +92,7 @@ const ReviewForm = () => {
             name='rating'  type="number"
             min="1"
             max="5"
+            step="0.1"
             placeholder="Rating"
             className="w-full input input-bordered border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
@@ -112,7 +126,7 @@ const ReviewForm = () => {
           <label className="block text-purple-700 font-semibold mb-1">User Email</label>
           <input
             name='email'  type="email"
-            value="mohosinaakter32810@gmail.com"
+            value={email}
             readOnly
             className="w-full input input-bordered bg-gray-100 text-gray-700 border-purple-300"
           />
@@ -122,7 +136,7 @@ const ReviewForm = () => {
           <label className="block text-purple-700 font-semibold mb-1">User Name</label>
           <input
             name='name'  type="text"
-            value="Mohosina Akter"
+            value={name}
             readOnly
             className="w-full input input-bordered bg-gray-100 text-gray-700 border-purple-300"
           />

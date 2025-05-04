@@ -10,7 +10,7 @@ const LatestGamer = () => {
         <div className='my-20 '>
         <h1 className='text-4xl font-bold text-purple-600  text-center my-5'>Latest Games : {shortLatest.length} </h1>
 
-       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 bg-purple-300 p-10 '>
+       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5  p-10 '>
          {
              shortLatest.map(gamer => <SingleGamer key={gamer._id} 
              gamer={gamer}

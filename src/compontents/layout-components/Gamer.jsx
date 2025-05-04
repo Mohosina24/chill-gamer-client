@@ -5,13 +5,13 @@ import SingleGamer from './SingleGamer';
 const Gamer = () => {
     const loaderGamers = useLoaderData() || [];
 
-    const sortedGamers = [...loaderGamers].sort((a,b) => b.rating - a.rating);
+    const sortedGamers = [...loaderGamers].sort((a,b) => b.rating - a.rating).slice(0,6);
    
     return (
         <div className='my-20 '>
            <h1 className='text-4xl font-bold text-purple-600  text-center my-5'>Highest Rated Game : {loaderGamers.length} </h1>
 
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 bg-purple-300 p-10 '>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5  p-10 '>
             {
                 sortedGamers.map(gamer => <SingleGamer key={gamer._id} 
                 gamer={gamer}
