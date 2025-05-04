@@ -14,7 +14,7 @@ const PrivateRoutes = ({children}) => {
     if(user && user?.email){
         return children;
     }
-    return <Navigate state={{form:location}} replace to={"/login"}></Navigate>
+    return <Navigate state={location.pathname}  to={"/login"}></Navigate>
 };
 
 export default PrivateRoutes;

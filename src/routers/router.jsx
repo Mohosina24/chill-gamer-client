@@ -13,6 +13,7 @@ import MyReview from "../assets/pages/MyReview";
 import GameWatch from "../assets/pages/GameWatch";
 import ReviewDetails from "../assets/pages/ReviewDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import ErrorPage from "../assets/pages/ErrorPage";
 
   const router = createBrowserRouter([
     {
@@ -62,7 +63,7 @@ import PrivateRoutes from "./PrivateRoutes";
     },
    {
     path:'*',
-    element: <h1>Error</h1>
+    element:<ErrorPage></ErrorPage>
    } 
   ]);
 
