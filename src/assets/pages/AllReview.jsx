@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Navbar from '../../compontents/Navbar';
 import Footer from '../../compontents/Footer';
 import Background from '../background1.jpg'
@@ -61,7 +61,7 @@ const AllReview = () => {
                   <p className="font-bold">rating: {gamer.rating}</p>
                   <p className="font-bold">Published Date: {gamer.year}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn bg-purple-700 text-white hover:bg-blue-800 w-full">Explore Details</button>
+                    <Link to={`/review/${gamer._id}`} className="btn bg-purple-700 text-white hover:bg-blue-800 w-full">Explore Details</Link>
                   </div>
                 </div>
               </div>)

@@ -1,6 +1,29 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Background from '../../assets/background2.jpg'
+import { AuthContext } from '../../provider/AuthProvider';
+
 const WatchList = () => {
+
+    const {user} = useContext(AuthContext);
+    const [watchList,setWatchList] = useState([]);
+
+    useEffect(()=>{
+        if(user && user.email){
+        fetch(`http://localhost:5000/watchList?email=${user.email}`)
+        .then(res => res.json())
+        .then(data => setWatchList(data));
+        }
+    },[user]);
+
+    const handleDelete = id =>{
+        fetch(`http://localhost:5000/watchList/${id}`,{
+            method:'DELETE',
+        })
+        .then(res => res.json())
+        .then(()=>{
+            setWatchList(watchList.filter(item => item._id !== id))
+        })
+    }
     return (
        <div style={{
                   backgroundImage: `url(${Background})`,
@@ -30,19 +53,24 @@ const WatchList = () => {
                               </tr>
                           </thead>
                           <tbody>
+                             {
+                                watchList.map((item,idx)=>(
+
+                                    <tr key={idx}>
+                                    <td>{idx + 1}</td>
+                                      <td><img className='w-28' src={item.photo} alt="" />
+                                        </td>
+                                      <td>{item.title}</td>
+                                      <td>{item.genre}</td>
+                                      <td>{item.year}</td>
+                                      <td>{item.email}</td>
+                                      <td>
+                                      <button onClick={()=>handleDelete(item._id)} className='btn btn-error text-white'>Delete</button>
+                                      </td>
+                                        </tr> 
+                                ) )
+                             }
                              
-                             
-                                <tr>
-                                <td>No</td>
-                                  <td>IMAGE</td>
-                                  <td>TITLE</td>
-                                  <td>GENRE</td>
-                                  <td>YEAR</td>
-                                  <td>EMAIL</td>
-                                  <td>
-                                  <button className='btn btn-error text-white'>Delete</button>
-                                  </td>
-                                    </tr> 
                           </tbody>
                       </table>
                   </div>

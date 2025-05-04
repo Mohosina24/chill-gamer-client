@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Details = () => {
     const game = useLoaderData();
+    const navigate = useNavigate();
     const {user} = useContext(AuthContext);
       const [email,setEmail] = useState('');
       const [name,setName] = useState('');
@@ -14,6 +15,27 @@ const Details = () => {
           setName(user.displayName || '');
         }
       },[user])
+
+      const handleAddToWatchList = async()=>{
+        const watchItem = {
+            title:game.title,
+            genre: game.genre,
+            year: game.year,
+            photo: game.photo,
+            email: user.email,
+        };
+        const response = await fetch('http://localhost:5000/watchList',{
+           method:'POST',
+           headers:{
+            'content-type': 'application/json'
+           },
+           body: JSON.stringify(watchItem)
+        })
+        if(response.ok){
+            alert('Added to WatchList');
+            navigate('/watchList');
+        }
+      }
     return (
         <div className="card card-side min-h-screen p-5 w-10/12 mx-auto my-20 bg-base-100 shadow-xl">
         <figure>
@@ -35,7 +57,7 @@ const Details = () => {
                 <h1 className='text-xl '>{name}</h1>
                 <p>{email}</p>
             </div>
-            <Link to={`/watchList/${_id}`} className="btn btn-primary">Watch List </Link>
+            <button onClick={handleAddToWatchList}  className="btn btn-primary">Watch List </button>
           </div>
         </div>
       </div>

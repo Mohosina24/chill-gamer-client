@@ -14,6 +14,11 @@ const ReviewTable = () => {
           setEmail(user.email || '');
         }
       },[user])
+
+    //   delete 
+    const handleDelete = id =>{
+        
+    }
     return (
         <div style={{
             backgroundImage: `url(${Background})`,
@@ -56,7 +61,7 @@ const ReviewTable = () => {
                             
                             <td className=''>
                                 <button className='btn btn-primary mr-2'>Edit</button>
-                                <button className='btn btn-error text-white'>Delete</button>
+                                <button onClick={()=>handleDelete(review._id)} className='btn btn-error text-white'>Delete</button>
                             </td>
                         </tr>
 )
