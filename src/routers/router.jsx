@@ -12,6 +12,7 @@ import Login from "../assets/pages/Login";
 import MyReview from "../assets/pages/MyReview";
 import GameWatch from "../assets/pages/GameWatch";
 import ReviewDetails from "../assets/pages/ReviewDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
   const router = createBrowserRouter([
     {
@@ -34,22 +35,22 @@ import ReviewDetails from "../assets/pages/ReviewDetails";
     },
     {
       path:'/addReview',
-      element:<AddReviews></AddReviews>
+      element:<PrivateRoutes><AddReviews></AddReviews></PrivateRoutes>
     },
     {
       path:'/myReviews',
-      element:<MyReview></MyReview>,
+      element:<PrivateRoutes><MyReview></MyReview></PrivateRoutes>,
       loader: ()=>fetch('http://localhost:5000/gamers')
 
     },
     {
       path:'/review/:id',
-      element:<ReviewDetails></ReviewDetails>,
+      element:<PrivateRoutes><ReviewDetails></ReviewDetails></PrivateRoutes>,
       loader: ({params}) =>fetch(`http://localhost:5000/gamers/${params.id}`)
     },
     {
       path:'/watchList',
-      element:<GameWatch></GameWatch>
+      element:<PrivateRoutes><GameWatch></GameWatch></PrivateRoutes>
     },
     {
       path:'/register',
