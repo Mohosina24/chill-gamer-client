@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import { Link, useLoaderData } from 'react-router-dom';
 import Navbar from '../../compontents/Navbar';
 import Footer from '../../compontents/Footer';
@@ -6,8 +6,7 @@ import Background from '../background1.jpg'
 
 const AllReview = () => {
     const loadReviews = useLoaderData();
-    const [selectedGenre, setSelectedGenre] = useState('all');
-    const [sortBy, setSortBy] = useState('');
+  
 
 
 
