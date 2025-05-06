@@ -14,6 +14,7 @@ import GameWatch from "../assets/pages/GameWatch";
 import ReviewDetails from "../assets/pages/ReviewDetails";
 import PrivateRoutes from "./PrivateRoutes";
 import ErrorPage from "../assets/pages/ErrorPage";
+import UpdateGame from "../compontents/layout-components/UpdateGame";
 
   const router = createBrowserRouter([
     {
@@ -43,6 +44,11 @@ import ErrorPage from "../assets/pages/ErrorPage";
       element:<PrivateRoutes><MyReview></MyReview></PrivateRoutes>,
       loader: ()=>fetch('http://localhost:5000/gamers')
 
+    },
+    {
+      path:'/updateGame/:id',
+      element:<UpdateGame></UpdateGame>,
+      loader: ({params})=>fetch(`http://localhost:5000/gamers/${params.id}`)
     },
     {
       path:'/review/:id',
