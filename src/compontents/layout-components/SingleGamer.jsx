@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SingleGamer = ({gamer}) => {
-    const {_id,photo,title,description,rating,year} = gamer;
+    const {_id,photo,title,genre,rating,year} = gamer;
     return (
         <div className="card card-compact bg-base-100 w-96 shadow-xl mx-auto ">
         <figure>
@@ -13,7 +13,7 @@ const SingleGamer = ({gamer}) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
-          <p>Description: {description}</p>
+          <p>Genre: {genre}</p>
           <p className="font-bold">rating: {rating}</p>
           <p className="font-bold">Published Date: {year}</p>
           <div className="card-actions justify-end">

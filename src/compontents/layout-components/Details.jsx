@@ -39,7 +39,7 @@ const Details = () => {
     return (
         <div className="card card-side min-h-screen p-5 w-10/12 mx-auto my-20 bg-base-100 shadow-xl">
         <figure>
-          <img className='w-[350px]'
+          <img className='w-[400px]'
             src={game.photo}
             alt="Movie" />
         </figure>
