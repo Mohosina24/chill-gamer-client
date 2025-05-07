@@ -32,9 +32,9 @@ const UpdateGame = () => {
         const email = form.email.value;
         const name = form.name.value;
         const reviewUpdate = { photo, title, description, rating, year, genre, email, name }
-        console.log(reviewUpdate)
+    
 
-        fetch(`http://localhost:5000/gamers/${review._id}`, {
+        fetch(`https://chill-gamer-server-theta.vercel.app/gamers/${review._id}`, {
 
             method: "PUT",
             headers: {
@@ -69,7 +69,7 @@ const UpdateGame = () => {
             </nav>
             <main>
                 <div className="max-w-3xl mx-auto my-20 p-8 rounded-2xl shadow-xl bg-purple-100">
-                    <h2 className="text-3xl font-bold text-purple-700 mb-6 text-center">Update Review</h2>
+                    <h2 className="text-3xl font-bold text-purple-700 mb-6 text-center">Update Your Review</h2>
 
                     <form onSubmit={handleReviewUpdate} className="space-y-4">
 

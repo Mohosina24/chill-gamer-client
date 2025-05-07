@@ -28,8 +28,8 @@ const ReviewForm = () => {
        const email = form.email.value;
        const name = form.name.value;
        const reviews ={photo,title,description,rating,year,genre,email,name}
-       console.log(reviews)
-       fetch('http://localhost:5000/gamers',{
+       
+       fetch('https://chill-gamer-server-theta.vercel.app/gamers',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -38,7 +38,7 @@ const ReviewForm = () => {
        })
        .then(res => res.json())
        .then(data => {
-        console.log(data);
+        
         if(data.insertedId){
           Swal.fire({
             title:'Success!',

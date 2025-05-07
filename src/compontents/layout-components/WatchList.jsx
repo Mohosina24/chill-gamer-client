@@ -10,7 +10,7 @@ const WatchList = () => {
 
     useEffect(()=>{
         if(user && user.email){
-        fetch(`http://localhost:5000/watchList?email=${user.email}`)
+        fetch(`https://chill-gamer-server-theta.vercel.app/watchList?email=${user.email}`)
         .then(res => res.json())
         .then(data => setWatchList(data));
         }
@@ -27,7 +27,7 @@ const WatchList = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/watchList/${id}`,{
+                fetch(`https://chill-gamer-server-theta.vercel.app/watchList/${id}`,{
                     method:'DELETE',
                 })
                 .then(res => res.json())

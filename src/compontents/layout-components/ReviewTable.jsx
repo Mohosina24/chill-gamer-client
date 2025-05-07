@@ -28,7 +28,7 @@ const ReviewTable = () => {
                 confirmButtonText: "Yes, delete it!"
               }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/gamers/${id}`,{
+                    fetch(`https://chill-gamer-server-theta.vercel.app/gamers/${id}`,{
                         method:'DELETE',
                     })
                     .then(res => res.json())

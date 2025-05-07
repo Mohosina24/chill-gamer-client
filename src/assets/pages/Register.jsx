@@ -16,8 +16,8 @@ const Register = () => {
         const email = from.email.value;
         const password = from.password.value;
         const photo = from.photo.value;
-        const createNew = {name,email,password,photo}
-        console.log(createNew);
+        // const createNew = {name,email,password,photo}
+        
             // password validation
             const uppercase = /[A-Z]/;
             const lowercase = /[a-z]/;
@@ -39,8 +39,7 @@ const Register = () => {
         .then(result =>{
             const newUser = result.user;
             setUser(newUser);
-            // console.log(newUser)
-
+            
             updateUserProfile({displayName:name,photoURL:photo})
          
              Swal.fire({
